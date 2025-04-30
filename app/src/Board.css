@@ -1,6 +1,3 @@
-.board {
-  display: grid;
-  grid-template-columns: repeat(5, 50px); /* 5 colonne, ognuna di 50px */
-  grid-template-rows: repeat(5, 50px);    /* 5 righe, ognuna di 50px */
-  gap: 5px;                               /* Distanza tra i bottoni */
+.board-row {
+  display: table;
 }
