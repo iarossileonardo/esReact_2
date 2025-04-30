@@ -15,6 +15,9 @@ export default function Game() {
 
     function jumpTo(nextMove) {
         setCurrentMove(nextMove);
+        if (nextMove == 0) {
+            window.location.reload();
+        }
     }
 
     const moves = history.map((squares, move) => {

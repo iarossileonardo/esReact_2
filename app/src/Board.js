@@ -2,7 +2,7 @@ import Square from './Square'
 import { useState } from 'react';
 import './Board.css';
 
-export default function Board({ xIsNext, squares, onPlay }) {
+export default async function Board({ xIsNext, squares, onPlay }) {
 
   let color;
 
@@ -23,9 +23,14 @@ export default function Board({ xIsNext, squares, onPlay }) {
   let status;
   if (winner) {
     status = "Winner: " + winner;
+    await sleep(500)
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
   return (
     <>
