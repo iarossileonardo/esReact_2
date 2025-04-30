@@ -2,7 +2,7 @@ import Square from './Square'
 import { useState } from 'react';
 import './Board.css';
 
-export default async function Board({ xIsNext, squares, onPlay }) {
+export default function Board({ xIsNext, squares, onPlay }) {
 
   let color;
 
@@ -20,17 +20,7 @@ export default async function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-    await sleep(500)
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+  const status = winner ? "Winner: " + winner : "Next player: " + (xIsNext ? "X" : "0");
 
   return (
     <>
